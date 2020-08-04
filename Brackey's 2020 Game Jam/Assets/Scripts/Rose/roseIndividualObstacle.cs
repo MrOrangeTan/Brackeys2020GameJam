@@ -5,36 +5,82 @@ public class roseIndividualObstacle : MonoBehaviour
 {
     //duration before the block fall
     [SerializeField] private float TimeBeforeBreak;
+    private float currentTimeBeforeBreak;
 
     //how long will it take for the blocks to respawn
     [SerializeField] private float timeToRespawn;
-    private Transform thistransform;
+    private float currentTimeToRespawn;
+
+    //boolean
+    private bool calledBreak = false;
+    private bool calledRespawn = false;
 
     private void Awake()
     {
-        thistransform = this.transform;
+        currentTimeBeforeBreak = TimeBeforeBreak;
+        currentTimeToRespawn = timeToRespawn;
+    }
+
+    private void Update()
+    {
+        //troubleshoot
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Debug.Log(currentTimeBeforeBreak);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log(currentTimeToRespawn);
+        }
+        
+        //this works
+        //if this is true,
+        if (calledBreak)
+        {
+            //call tis method
+            goingToBreak();
+        }
+
+        if (calledRespawn)
+        {
+            beforeRespawn();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            StartCoroutine(countdownBeforeBreak());
+            calledBreak = true;
         }
     }
 
-    IEnumerator countdownBeforeBreak()
+    void goingToBreak()
     {
-        //waiting for the time
-        yield return new WaitForSeconds(TimeBeforeBreak);
-        //then it will not be active
-        //Destroy(gameObject);
+        currentTimeBeforeBreak -= Time.deltaTime;
+        
+        if (currentTimeBeforeBreak <= 0)
+        {
+            this.gameObject.SetActive(false);   
+        }
     }
 
-
-    IEnumerator respawnTime()
+    private void OnDisable()
     {
-        yield return new WaitForSeconds(timeToRespawn);
-        Instantiate(gameObject, thistransform.position, thistransform.rotation);
+        calledRespawn = true;
+        calledBreak = false;
     }
 
+    void beforeRespawn()
+    {
+        currentTimeToRespawn -= Time.deltaTime;
+
+        if (currentTimeToRespawn <= 0)
+        {
+            this.gameObject.SetActive(true);
+        }
+    }
+    private void OnEnable()
+    {
+        calledRespawn = false;
+    }
 }
