@@ -1,21 +1,40 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class roseIndividualObstacle : MonoBehaviour
 {
-    //duration before they fall
-    [SerializeField] private float maxTimeBeforeBreak;
-    private float currentTimeBeforeBreak;
+    //duration before the block fall
+    [SerializeField] private float TimeBeforeBreak;
 
     //how long will it take for the blocks to respawn
-    [SerializeField] private float maxRespawnTime;
-    private float currentRespawnTime;
+    [SerializeField] private float timeToRespawn;
+    private Transform thistransform;
 
     private void Awake()
     {
-        currentTimeBeforeBreak = maxTimeBeforeBreak;
-        currentRespawnTime = maxRespawnTime;
+        thistransform = this.transform;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            StartCoroutine(countdownBeforeBreak());
+        }
+    }
+
+    IEnumerator countdownBeforeBreak()
+    {
+        //waiting for the time
+        yield return new WaitForSeconds(TimeBeforeBreak);
+        //then it will not be active
+        //Destroy(gameObject);
+    }
+
+
+    IEnumerator respawnTime()
+    {
+        yield return new WaitForSeconds(timeToRespawn);
+        Instantiate(gameObject, thistransform.position, thistransform.rotation);
     }
 
 }

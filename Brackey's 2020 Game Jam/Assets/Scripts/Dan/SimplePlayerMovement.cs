@@ -22,7 +22,7 @@ public class SimplePlayerMovement : MonoBehaviour
     {
         bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GroundLayer);
 
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y) * Time.deltaTime;
 
         if (isGrounded && Input.GetButton("Jump"))
             rb.AddForce(Vector2.up * jumpSpeed * Time.deltaTime * 100, ForceMode2D.Force);
