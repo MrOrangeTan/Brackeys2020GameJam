@@ -1082,8 +1082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40eda332134240d448660cc693928a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpSpeed: 7
+  speed: 4
+  jumpSpeed: 25
   groundCheck: {fileID: 512654980}
   groundCheckRadius: 0.2
   GroundLayer:
@@ -1231,6 +1231,7 @@ GameObject:
   - component: {fileID: 965844336}
   - component: {fileID: 965844335}
   - component: {fileID: 965844334}
+  - component: {fileID: 965844337}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1273,7 +1274,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1303,6 +1304,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &965844337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965844333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903035b8832eb184eac9fe57978d14b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 840849402}
+  smoothTime: 0.125
+  changeCameraPerspective: {x: 0, y: 1, z: -10}
 --- !u!1 &1083869652
 GameObject:
   m_ObjectHideFlags: 0
