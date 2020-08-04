@@ -25,6 +25,6 @@ public class SimplePlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
 
         if (isGrounded && Input.GetButton("Jump"))
-            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Force);
+            rb.AddForce(Vector2.up * jumpSpeed * Time.deltaTime * 100, ForceMode2D.Force);
     }
 }
