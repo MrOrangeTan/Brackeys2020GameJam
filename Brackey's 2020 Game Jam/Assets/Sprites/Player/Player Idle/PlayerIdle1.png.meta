@@ -58,8 +58,12 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+<<<<<<< HEAD
   ignorePngGamma: 0
   applyGammaDecoding: 0
+=======
+  applyGammaDecoding: 1
+>>>>>>> c74d1d36017ba7ec7483da62d5f0811d9cf631eb
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
