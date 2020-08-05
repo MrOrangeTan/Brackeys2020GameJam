@@ -14,18 +14,19 @@ public class SimplePlayerMovement : MonoBehaviour
     public LayerMask GroundLayer;
 
     //hero class
-    [SerializeField] private playerClass playerClass;
+    [SerializeField] private playerClass classForPlayer;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        classForPlayer = GetComponent<playerClass>();
     }
 
     private void Update()
     {
         bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GroundLayer);
 
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * playerClass.movementSpeed, rb.velocity.y) * Time.deltaTime;
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * classForPlayer.movementSpeed, rb.velocity.y) * Time.deltaTime;
 
         if (isGrounded && Input.GetButton("Jump"))
             rb.AddForce(Vector2.up * jumpSpeed * Time.deltaTime * 100, ForceMode2D.Force);
