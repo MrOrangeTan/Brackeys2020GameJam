@@ -3,84 +3,90 @@ using UnityEngine;
 
 public class roseIndividualObstacle : MonoBehaviour
 {
-    //duration before the block fall
-    [SerializeField] private float TimeBeforeBreak;
-    private float currentTimeBeforeBreak;
+    //Time before the block the player is standing on breaks
+    [SerializeField] private float timeBeforeBreak;
+    [SerializeField]private float currentTimeBeforeBreak;
 
-    //how long will it take for the blocks to respawn
-    [SerializeField] private float timeToRespawn;
-    private float currentTimeToRespawn;
+    //respawn time
+    [SerializeField] private float respawnTime;
+    [SerializeField]private float currentRespawnTime;
 
-    //boolean
-    private bool calledBreak = false;
-    private bool calledRespawn = false;
+    //boolean to check if the block is touch
+    bool isBlockTouch;
 
+    //boolean to check if its time to respawn
+    bool timeToRespawn;
+
+    //this gameobject transform
+    [SerializeField] private Transform respawnBlock;
+    
     private void Awake()
     {
-        currentTimeBeforeBreak = TimeBeforeBreak;
-        currentTimeToRespawn = timeToRespawn;
+        isBlockTouch = false;
+        timeToRespawn = false;
+        respawnBlock = this.gameObject.transform;
+    }
+    private void Start()
+    {
+        currentTimeBeforeBreak = timeBeforeBreak;
+        currentRespawnTime = respawnTime;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if this collides with the player
+        if (collision.gameObject.tag == "Player")
+        {
+            //make is touch to true so it can be called under Update
+            isBlockTouch = true;
+
+        }
     }
 
     private void Update()
     {
-        //troubleshoot
-        if (Input.GetKeyDown(KeyCode.V))
+        //if this is true
+        if (isBlockTouch)
         {
-            Debug.Log(currentTimeBeforeBreak);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log(currentTimeToRespawn);
-        }
-        
-        //this works
-        //if this is true,
-        if (calledBreak)
-        {
-            //call tis method
-            goingToBreak();
+            //time before the block breaks will minus 1 sec based on the time when last frame was drawn
+            blockDestroying();
         }
 
-        if (calledRespawn)
+        if (timeToRespawn)
         {
-            beforeRespawn();
+            blockRespawning();
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        
+        else if (!isBlockTouch || !timeToRespawn)
         {
-            calledBreak = true;
+            return;
         }
     }
 
-    void goingToBreak()
+    void blockDestroying()
     {
-        currentTimeBeforeBreak -= Time.deltaTime;
-        
+        //if the block breaker timer reaches zero
         if (currentTimeBeforeBreak <= 0)
         {
-            this.gameObject.SetActive(false);   
+            currentTimeBeforeBreak = timeBeforeBreak;
+            timeToRespawn = true;
+            //this gameobject will be destroyed
+            Destroy(gameObject);
         }
+        else
+            currentTimeBeforeBreak -= Time.deltaTime;
     }
 
-    private void OnDisable()
-    {
-        calledRespawn = true;
-        calledBreak = false;
-    }
 
-    void beforeRespawn()
-    {
-        currentTimeToRespawn -= Time.deltaTime;
 
-        if (currentTimeToRespawn <= 0)
+    void blockRespawning()
+    {   
+        if (currentRespawnTime <= 0)
         {
-            this.gameObject.SetActive(true);
+            timeToRespawn = false;
+            Instantiate(respawnBlock, respawnBlock.transform.position, Quaternion.identity);
+            currentRespawnTime = respawnTime;
         }
-    }
-    private void OnEnable()
-    {
-        calledRespawn = false;
+        else
+            currentRespawnTime -= Time.deltaTime;
     }
 }
