@@ -6,7 +6,7 @@ public class playerClass : MonoBehaviour
     public gameMaster gm;
 
     public float health = 50f;
-    public float currentHealth;
+    [HideInInspector] public float currentHealth;
 
     public float mana;
     public float currentMana;

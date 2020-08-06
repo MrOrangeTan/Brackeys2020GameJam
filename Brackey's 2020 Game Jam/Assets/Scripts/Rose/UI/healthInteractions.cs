@@ -10,8 +10,7 @@ public class healthInteractions : MonoBehaviour
     [SerializeField] private playerClass classForPlayer;
 
     private void Awake()
-    {
-        
+    {   
         healthText.text = "Health: " + classForPlayer.health;
     }
 
@@ -19,7 +18,12 @@ public class healthInteractions : MonoBehaviour
     {
         if (spike.spikeHit)
         {
-            healthText.text = "Health: " + classForPlayer.currentHealth;
+            interactionWithHealth();
         }
+    }
+
+    void interactionWithHealth()
+    {
+        healthText.text = "Health: " + classForPlayer.currentHealth;
     }
 }
