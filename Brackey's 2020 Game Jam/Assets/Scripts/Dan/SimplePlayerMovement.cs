@@ -26,9 +26,21 @@ public class SimplePlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        flipCharacter();
+     
+
+            bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GroundLayer);
+
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y) * Time.deltaTime;
+
+        if (isGrounded && Input.GetButton("Jump"))
+            rb.AddForce(Vector2.up * jumpSpeed * Time.deltaTime * 100, ForceMode2D.Force);
+    }
+    void flipCharacter()
+    {
         //flip characer
         Vector3 characterScale = transform.localScale;
-        if (Input.GetAxis ("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal") < 0)
         {
             characterScale.x = characterScaleAdjustment * -1;
         }
@@ -38,12 +50,5 @@ public class SimplePlayerMovement : MonoBehaviour
             characterScale.x = characterScaleAdjustment;
         }
         transform.localScale = characterScale;
-
-            bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GroundLayer);
-
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y) * Time.deltaTime;
-
-        if (isGrounded && Input.GetButton("Jump"))
-            rb.AddForce(Vector2.up * jumpSpeed * Time.deltaTime * 100, ForceMode2D.Force);
     }
 }
