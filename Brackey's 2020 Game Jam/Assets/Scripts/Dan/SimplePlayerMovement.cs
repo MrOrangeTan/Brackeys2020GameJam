@@ -21,7 +21,7 @@ public class SimplePlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //classForPlayer = GetComponent<playerClass>();
+        classForPlayer = GetComponent<playerClass>();
     }
 
     private void Update()
@@ -31,10 +31,10 @@ public class SimplePlayerMovement : MonoBehaviour
 
             bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GroundLayer);
 
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y) * Time.deltaTime;
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * classForPlayer.movementSpeed, rb.velocity.y) * Time.deltaTime;
 
         if (isGrounded && Input.GetButton("Jump"))
-            rb.AddForce(Vector2.up * jumpSpeed * Time.deltaTime * 100, ForceMode2D.Force);
+            rb.AddForce(Vector2.up * jumpSpeed * Time.deltaTime * 100, ForceMode2D.Impulse);
     }
     void flipCharacter()
     {

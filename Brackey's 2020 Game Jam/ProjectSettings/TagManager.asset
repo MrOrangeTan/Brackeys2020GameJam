@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - GM
+  - mobilePlatforms
   layers:
   - Default
   - TransparentFX
