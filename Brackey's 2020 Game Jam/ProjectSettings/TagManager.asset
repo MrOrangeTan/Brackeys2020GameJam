@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - GM
+  - mobilePlatforms
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -6,12 +6,11 @@ public class playerClass : MonoBehaviour
     public gameMaster gm;
 
     public float health = 50f;
-    [HideInInspector] public float currentHealth;
-
+    public float currentHealth;
     public float mana;
     public float currentMana;
 
-    public float movementSpeed = 50;
+    public float movementSpeed = 2;
 
     private void Awake()
     {

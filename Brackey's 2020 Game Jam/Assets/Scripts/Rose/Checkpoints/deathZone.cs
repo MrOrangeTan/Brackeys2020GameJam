@@ -7,6 +7,8 @@ public class deathZone : MonoBehaviour
     public gameMaster gm;
 
     public Transform playerTransform;
+
+    public playerClass classForPlayer;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")

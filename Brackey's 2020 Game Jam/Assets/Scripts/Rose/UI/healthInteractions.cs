@@ -16,6 +16,7 @@ public class healthInteractions : MonoBehaviour
 
     private void Update()
     {
+        healthText.text = "Health: " + classForPlayer.currentHealth.ToString("f0");
         if (spike.spikeHit)
         {
             interactionWithHealth();
