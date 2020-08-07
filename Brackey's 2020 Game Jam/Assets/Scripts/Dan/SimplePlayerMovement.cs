@@ -16,6 +16,7 @@ public class SimplePlayerMovement : MonoBehaviour
     public float characterScaleAdjustment;
     //hero class
     [SerializeField] private playerClass classForPlayer;
+    [SerializeField] private float damageIfNotMoving;
 
     private void Start()
     {
@@ -26,14 +27,8 @@ public class SimplePlayerMovement : MonoBehaviour
     private void Update()
     {
         flipCharacter();
-     
 
-            bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GroundLayer);
-
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * classForPlayer.movementSpeed, rb.velocity.y) * Time.deltaTime;
-
-        if (isGrounded && Input.GetButtonDown("Jump"))
-            rb.velocity = Vector2.up * jumpForce;
+        playerMovement();
     }
     void flipCharacter()
     {
@@ -49,5 +44,14 @@ public class SimplePlayerMovement : MonoBehaviour
             characterScale.x = characterScaleAdjustment;
         }
         transform.localScale = characterScale;
+    }
+    void playerMovement()
+    {
+        bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GroundLayer);
+
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * classForPlayer.movementSpeed, rb.velocity.y) * Time.deltaTime;
+
+        if (isGrounded && Input.GetButtonDown("Jump"))
+            rb.velocity = Vector2.up * jumpForce;
     }
 }
