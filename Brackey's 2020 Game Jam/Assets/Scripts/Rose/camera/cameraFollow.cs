@@ -7,8 +7,7 @@ public class cameraFollow : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float smoothTime = 0.2f;
 
-    [SerializeField] private Vector3 changeCameraPerspective
-        = new Vector3 (0, 4f, -9f);
+    [SerializeField] private Vector3 changeCameraPerspective = Vector3.zero;
     Vector3 cameraVelocity = Vector3.zero;
 
     private void FixedUpdate()
