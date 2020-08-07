@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 39995682}
   - component: {fileID: 39995683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform Middle (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 292302409}
   - component: {fileID: 292302410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform Middle (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 352591935}
   - component: {fileID: 352591936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tall Platform Top
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -825,7 +825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1218409090}
   - component: {fileID: 1218409091}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tall Platform Top 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1775978703}
   - component: {fileID: 1775978704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform Middle (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1096,7 +1096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831212048}
   - component: {fileID: 1831212049}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tall Platform Top 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1177,7 +1177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973306557}
   - component: {fileID: 1973306558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform Middle
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1432,12 +1432,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40eda332134240d448660cc693928a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 20
+  jumpSpeed: 10
   groundCheck: {fileID: 2119199168}
-  groundCheckRadius: 0
+  groundCheckRadius: 0.3
   GroundLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   characterScaleAdjustment: 1
   classForPlayer: {fileID: 2065303256}
 --- !u!1 &2119199167

@@ -6,7 +6,7 @@ public class SimplePlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    public float jumpSpeed;
+    public float jumpForce;
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -32,12 +32,12 @@ public class SimplePlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * classForPlayer.movementSpeed, rb.velocity.y) * Time.deltaTime;
 
-        if (isGrounded && Input.GetButton("Jump"))
-            rb.AddForce(Vector2.up * jumpSpeed * Time.deltaTime * 100, ForceMode2D.Impulse);
+        if (isGrounded && Input.GetButtonDown("Jump"))
+            rb.velocity = Vector2.up * jumpForce;
     }
     void flipCharacter()
     {
-        //flip characer
+        //flip characer 
         Vector3 characterScale = transform.localScale;
         if (Input.GetAxis("Horizontal") < 0)
         {
