@@ -6,7 +6,6 @@ public class SimplePlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    public float speed;
     public float jumpSpeed;
 
     public Transform groundCheck;
