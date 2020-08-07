@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 230821241}
   - component: {fileID: 230821240}
   - component: {fileID: 230821243}
+  - component: {fileID: 230821244}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -467,6 +468,25 @@ MonoBehaviour:
   target: {fileID: 1365567881}
   smoothTime: 0.2
   changeCameraPerspective: {x: 0, y: 0.33, z: -0.98}
+--- !u!95 &230821244
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230821239}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d376fa28d520bae4484919ab6a9bea45, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &397863395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,18 +1542,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0029326733, y: -0.024800628}
+  m_Offset: {x: -0.018888414, y: -0.0684427}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.090533, y: 0.27391964}
+  m_Size: {x: 0.33254826, y: 0.8690388}
   m_EdgeRadius: 0
 --- !u!114 &1365567884
 MonoBehaviour:
@@ -1556,6 +1576,8 @@ MonoBehaviour:
   characterScaleAdjustment: 1
   classForPlayer: {fileID: 1365567886}
   damageIfNotMoving: 1
+  StaticEffect: {fileID: 0}
+  StartPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1365567885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,7 +2043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1965592566}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MOBILE PLATFORMS
   m_TagString: mobilePlatforms
   m_Icon: {fileID: 0}

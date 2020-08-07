@@ -10,7 +10,7 @@ public class playerClass : MonoBehaviour
     public float mana;
     public float currentMana;
 
-    public float movementSpeed = 50;
+    public float movementSpeed = 2;
 
     private void Awake()
     {

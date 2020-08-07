@@ -12,16 +12,36 @@ public class SimplePlayerMovement : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask GroundLayer;
 
-    //adjusting the scle
+    //adjusting the scale
     public float characterScaleAdjustment;
     //hero class
     [SerializeField] private playerClass classForPlayer;
     [SerializeField] private float damageIfNotMoving;
 
+    public GameObject StaticEffect;
+    public Vector3 StartPosition;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         classForPlayer = GetComponent<playerClass>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            StartCoroutine(ShowStatic());
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private IEnumerator ShowStatic()
+    {
+        StaticEffect.SetActive(true);
+        yield return new WaitForSeconds(1);
+        transform.position = StartPosition;
+        StaticEffect.SetActive(false);
     }
 
     private void Update()
@@ -30,7 +50,7 @@ public class SimplePlayerMovement : MonoBehaviour
 
         playerMovement();
     }
-    void flipCharacter()
+    private void flipCharacter()
     {
         //flip characer 
         Vector3 characterScale = transform.localScale;
