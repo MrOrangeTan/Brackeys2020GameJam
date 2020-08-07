@@ -49,7 +49,7 @@ public class SimplePlayerMovement : MonoBehaviour
 
         bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GroundLayer);
 
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * classForPlayer.movementSpeed * Time.deltaTime * 50, rb.velocity.y);
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * classForPlayer.movementSpeed * Time.deltaTime * 15, rb.velocity.y);
 
         if (isGrounded && Input.GetButtonDown("Jump"))
             rb.AddForce(Vector2.up * jumpSpeed * 100, ForceMode2D.Force);
