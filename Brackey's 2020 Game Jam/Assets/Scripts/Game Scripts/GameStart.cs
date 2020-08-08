@@ -7,6 +7,6 @@ public class GameStart : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene(Room1);
+        SceneManager.LoadScene("Room1");
     }
 }

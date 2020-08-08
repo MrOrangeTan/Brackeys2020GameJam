@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/actual game/stageSelect.unity
     guid: dcf84c4bfeefe0044868873bf9477621
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/actual game/GAME.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/actual game/Rooms/Room1.unity
+    guid: eb81c84c7ffe0c847bb3041eb306ef3a
   m_configObjects: {}
