@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: 
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/actual game/Rooms/Room1.unity
+    path: Assets/Scenes/actual game/Rooms/Room5.unity
     guid: eb81c84c7ffe0c847bb3041eb306ef3a
   - enabled: 1
     path: Assets/Scenes/actual game/GameWin.unity
