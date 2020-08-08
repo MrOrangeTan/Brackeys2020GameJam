@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static bool rewind;
 
     public float runSpeed = 20f;
     public CharacterController2D controller;
@@ -36,10 +37,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             Rewind.SetActive(true);
+            rewind = true;
         }
         else
         {
             Rewind.SetActive(false);
+            rewind = false;
         }
 
     }
