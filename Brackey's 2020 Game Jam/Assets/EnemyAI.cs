@@ -12,7 +12,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (speed < 1)
             speed += 0.05f;
-        transform.position = Vector3.Lerp(waypoints[0].position, waypoints[1].position, speed - rewindFactor);
+        if (waypoints.Length == 2)
+            transform.position = Vector3.Lerp(waypoints[0].position, waypoints[1].position, speed - rewindFactor);
 
         if (PlayerMovement.rewind && rewindFactor < 1)
             rewindFactor += 0.01f;
