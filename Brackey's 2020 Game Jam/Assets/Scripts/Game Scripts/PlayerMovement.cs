@@ -17,6 +17,15 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
+        if (Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
+        {
+            GetComponent<Animator>().SetBool("walk", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("walk", false);
+        }
+
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
