@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
 
+    public GameObject Rewind;
+
 
     void Update()
     {
@@ -29,6 +31,15 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            Rewind.SetActive(true);
+        }
+        else
+        {
+            Rewind.SetActive(false);
         }
 
     }
