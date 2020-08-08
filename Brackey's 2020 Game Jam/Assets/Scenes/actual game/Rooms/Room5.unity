@@ -7037,7 +7037,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1180898000
 RectTransform:
@@ -11120,7 +11120,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 335f228699e66cb4b93bc4fcc84b78ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11157,7 +11157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39191923dc1eec947a600016ac784745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelStart: {fileID: 0}
+  LevelStart: {fileID: 941817291}
 --- !u!1 &1956721709
 GameObject:
   m_ObjectHideFlags: 0
@@ -11865,7 +11865,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 335f228699e66cb4b93bc4fcc84b78ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11889,7 +11889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39191923dc1eec947a600016ac784745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelStart: {fileID: 0}
+  LevelStart: {fileID: 941817291}
 --- !u!1 &2103387353
 GameObject:
   m_ObjectHideFlags: 0

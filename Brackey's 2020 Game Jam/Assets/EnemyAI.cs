@@ -13,18 +13,18 @@ public class EnemyAI : MonoBehaviour
         if (waypoints.Length == 2)
         {
             if (speed < 1)
-                speed += 0.05f;
+                speed += 0.1f;
             transform.position = Vector3.Lerp(waypoints[0].position, waypoints[1].position, speed - rewindFactor);
             if (PlayerMovement.rewind && rewindFactor < 1)
-                rewindFactor += 0.01f;
+                rewindFactor += 0.02f;
             else if (rewindFactor > 0)
-                rewindFactor -= 0.01f;
+                rewindFactor -= 0.02f;
         }
 
         if (waypoints.Length == 3)
         {
             if (speed < 2)
-                speed += 0.05f;
+                speed += 0.2f;
 
             if (speed - rewindFactor > 0 && speed - rewindFactor <= 1)
             {
@@ -37,9 +37,9 @@ public class EnemyAI : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
             if (PlayerMovement.rewind && rewindFactor < 2)
-                rewindFactor += 0.01f;
+                rewindFactor += 0.03f;
             else if (rewindFactor > 0)
-                rewindFactor -= 0.01f;
+                rewindFactor -= 0.03f;
         }
     }
 }

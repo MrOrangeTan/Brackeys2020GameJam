@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (rewindDuration < 1)
-            rewindDuration += 0.02f;
+            rewindDuration += 0.05f;
 
         if (rewindDuration < 0.01f && canRewind)
             StartCoroutine(Cooldown());
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Rewind.SetActive(true);
             rewind = true;
-            rewindDuration -= 0.025f;
+            rewindDuration -= 0.06f;
         }
         else
         {
