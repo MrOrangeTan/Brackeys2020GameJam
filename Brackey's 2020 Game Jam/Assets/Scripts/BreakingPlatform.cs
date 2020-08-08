@@ -5,8 +5,7 @@ using UnityEngine;
 public class BreakingPlatform : MonoBehaviour
 {
     public float timeBeforeBreak;
-    public float timeBeforeRespawn;
-    public GameObject Platform;
+    public float timeToSpawn;
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -19,10 +18,6 @@ public class BreakingPlatform : MonoBehaviour
     private IEnumerator Break()
     {
         yield return new WaitForSeconds(timeBeforeBreak);
-        GetComponent<BoxCollider2D>().isTrigger = true;
-        Platform.SetActive(false);
-        yield return new WaitForSeconds(timeBeforeRespawn);
-        GetComponent<BoxCollider2D>().isTrigger = false;
-        Platform.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
